@@ -1,57 +1,39 @@
 // Grant Bingham
 // CS 172
-// Ex. 9.11
-
-//UML
-//-----------------
-// Class EvenNumber
-//-----------------
-// - int value
-//-----------------
-// + EvenNumber
-// + EvenNumber(int setvalue)
-// + int getValue
-// + int getNextvalue()
-// + int getPreviousValue()
-
+// Ex. 10.4
 #include <iostream>
+#include <string>
+#include <algorithm>
 using namespace std;
 
-class EvenNumber
-{
-	private:
-		int value;
-	public:
-	EvenNumber()
-	{
-		value = 0;
-	}
-	EvenNumber(int setvalue)
-	{
-		value = setvalue;
-	}
-
-	int getValue()
-	{
-		return value;
-	}
-	
-	int getNextValue()
-	{
-		return value + 2;
-	}
-
-	int getPreviousValue()
-	{
-		return value - 2;
-	}
-};
-
+string sort(string& s);
 
 int main()
 {
-	EvenNumber Even1(16);
-	cout << Even1.getValue() << endl;
-	cout << Even1.getNextValue() << endl;
-	cout << Even1.getPreviousValue() << endl;
+	string s;
+	cout << "Enter a word or any string of letters: ";
+	cin >> s;
+	cout << sort(s) << endl;
+}	
+
+string sort(string& s)
+{
+	bool alpha = false;
+	do
+	{
+		alpha = false;
+		for (int i = 0; i < s.size()-1; i++)
+		{
+			if (s.at(i) > s.at(i+1))
+			{
+				char temp = s.at(i);
+				s.at(i) = s.at(i+1);
+				s.at(i+1) = temp;
+				alpha = true;
+			}
+		}
+	}while(alpha == true);
+
+	return s;
 }
+
