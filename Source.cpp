@@ -2,6 +2,8 @@
 // CS 172
 // Ex. 10.10
 
+//PT -- 16/20
+
 //UML
 //Class: MyInteger
 //------------------
@@ -43,6 +45,8 @@ class MyInteger
 			return value;
 		}
 
+		//PT -- check this out:
+		//PT const bool isEven() { return (value % 2 == 0); }
 		const bool isEven()
 		{
 			if (value % 2 == 0)
@@ -52,6 +56,8 @@ class MyInteger
 			return false;
 		}
 
+		//PT -- check this out:
+		//PT const bool isEven() { return !isEven(); }
 		const bool isOdd()
 		{
 			if (value % 2 == 1)
@@ -63,6 +69,7 @@ class MyInteger
 
 		const bool isPrime()
 		{
+			//PT -- only need to go to value / 2 (why?)
 			for (int i = 1; i < value; i++)
 			{
 				if (value % i == 0)
@@ -105,17 +112,20 @@ class MyInteger
 
 		static bool isEven(const MyInteger& newvalue)
 		{
-
+			//PT
+			//return newValue.isEven();
 		}
 		
 		static bool isOdd(const MyInteger& newvalue)
 		{
-
+			//PT
+			//return newValue.isPrime();
 		}
 
 		static bool isPrime(const MyInteger& newvalue)
 		{
-
+			//PT
+			//return newValue.isPrime();
 		}
 
 };			
